@@ -10,20 +10,17 @@
   --surface: #f7f8fa;
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: #eef0f2;
+  background: #fff;
   font-synthesis: none;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #eef0f2; }
+body { margin: 0; min-width: 320px; background: #fff; }
 button { border: 0; font: inherit; color: inherit; background: none; cursor: pointer; }
 img { display: block; width: 100%; }
 h1, h2, h3, p { margin: 0; }
-.phone-shell { position: relative; width: min(100%, 360px); min-height: 100vh; margin: 0 auto; overflow: hidden; background: #fff; box-shadow: 0 0 36px rgba(28, 35, 42, .12); padding-bottom: 82px; }
-.status-bar { height: 44px; padding: 16px 18px 0; display: flex; justify-content: space-between; align-items: flex-start; font-size: 12px; font-weight: 700; }
-.status-icons { display: flex; gap: 5px; align-items: center; }
-.status-icons svg { width: 14px; height: 14px; stroke-width: 2.4; }
+.phone-shell { position: relative; width: 100%; min-height: 100vh; margin: 0; overflow: hidden; background: #fff; padding-bottom: 82px; }
 .app-header { height: 48px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: #fff; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(236,238,242,.7); }
 .app-header strong { font-size: 18px; }
 .header-actions { display: flex; gap: 14px; }
@@ -128,19 +125,13 @@ h1, h2, h3, p { margin: 0; }
 .travel-grid img { height: 164px; object-fit: cover; border-radius: 6px; }
 .footer { padding: 22px 16px 28px; color: #9aa2b1; font-size: 11px; background: #f7f8fa; }
 .footer small { display: block; margin-top: 8px; }
-.bottom-nav { position: fixed; z-index: 30; bottom: 0; width: min(100%, 360px); height: 82px; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(255,255,255,.96); border-top: 1px solid #d9dde5; backdrop-filter: blur(14px); }
+.bottom-nav { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; width: 100%; height: 82px; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(255,255,255,.96); border-top: 1px solid #d9dde5; backdrop-filter: blur(14px); }
 .bottom-nav button { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #9aa2b1; font-size: 10px; }
 .bottom-nav svg { width: 21px; height: 21px; stroke-width: 1.8; }
 .bottom-nav button.is-active { color: #111318; font-weight: 700; }
 .bottom-nav button.is-active svg { stroke-width: 2.4; }
 .toast { position: fixed; z-index: 40; bottom: 94px; left: 50%; width: min(calc(100% - 32px), 328px); padding: 11px 14px; border-radius: 6px; background: rgba(23,27,33,.92); color: #fff; font-size: 12px; text-align: center; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; transition: .2s ease; }
 .toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
-
-@media (min-width: 700px) {
-  body { padding: 24px 0; }
-  .phone-shell { border-radius: 18px; min-height: calc(100vh - 48px); }
-  .bottom-nav { border-radius: 0 0 18px 18px; }
-}
 
 @media (max-width: 359px) {
   .venue-card { flex-basis: calc(100vw - 32px); }
