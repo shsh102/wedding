@@ -29,14 +29,27 @@ document.querySelectorAll('.comparison-tabs button').forEach((tab) => {
   });
 });
 
+function moveToSection(target) {
+  document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const activeNav = document.querySelector(`.bottom-nav button[data-target="${target}"]`);
+  if (activeNav) {
+    document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
+    activeNav.classList.add('is-active');
+  }
+}
+
 document.querySelectorAll('.bottom-nav button').forEach((button) => {
   button.addEventListener('click', () => {
     const target = button.dataset.target;
     if (target) {
-      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
-      button.classList.add('is-active');
+      moveToSection(target);
     }
+  });
+});
+
+document.querySelectorAll('.quick-pill[data-target]').forEach((button) => {
+  button.addEventListener('click', () => {
+    moveToSection(button.dataset.target);
   });
 });
 
