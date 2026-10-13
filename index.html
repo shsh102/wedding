@@ -12,7 +12,127 @@
     <script src="./app.js" defer></script>
   </head>
   <body>
-    <main class="phone-shell">
+    <main class="phone-shell is-onboarding">
+      <section class="onboarding-flow" aria-label="온보딩">
+        <div class="onboarding-header">
+          <button class="onboarding-back" type="button" aria-label="이전"><i data-lucide="chevron-left"></i></button>
+          <div class="onboarding-progress"><span></span></div>
+        </div>
+
+        <div class="onboarding-step is-active" data-step="start">
+          <div class="onboarding-copy">
+            <h1>반가워요!<br />어떤 방식으로 결혼 준비를 시작할까요?</h1>
+          </div>
+          <div class="onboarding-options">
+            <button class="onboarding-choice is-selected" type="button" data-branch="a">
+              <small>나만의 취향 찾기</small>
+              <strong>아직 원하는 기준을 모르겠어요</strong>
+              <i data-lucide="check"></i>
+            </button>
+            <button class="onboarding-choice" type="button" data-branch="b">
+              <small>기준 입력</small>
+              <strong>생각한 조건이 있어요</strong>
+              <i data-lucide="check"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="a-vibe">
+          <div class="onboarding-copy">
+            <h1>어떤 분위기의 홀에서<br />가장 자연스럽게 빛날까요?</h1>
+            <p>사진을 보며 마음이 가는 무드를 골라보세요.</p>
+          </div>
+          <div class="visual-options">
+            <button class="visual-choice is-selected" type="button"><img src="./assets/onboarding_1.png" alt="밝은 웨딩홀" /><span><strong>밝은 홀</strong><em>높은 촬영 만족도<br />자연광 날씨 중요</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_2.png" alt="어두운 웨딩홀" /><span><strong>어두운 홀</strong><em>신랑신부 시선 집중<br />얼굴 라인 음영 주의</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_3.png" alt="호텔 웨딩홀" /><span><strong>호텔</strong><em>프라이빗 하이엔드<br />대관료 및 식대 부담</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_4.png" alt="야외 가든 웨딩홀" /><span><strong>야외/가든</strong><em>낭만적인 분위기<br />날씨 변수 체크</em></span><i data-lucide="check"></i></button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="a-space">
+          <div class="onboarding-copy">
+            <h1>공간이 주는 느낌도<br />함께 골라볼까요?</h1>
+            <p>홀의 구조는 분위기와 하객 경험을 함께 바꿔요.</p>
+          </div>
+          <div class="visual-options">
+            <button class="visual-choice is-selected" type="button"><img src="./assets/onboarding_5.png" alt="높은 층고 웨딩홀" /><span><strong>높은 층고</strong><em>고급스러운 개방감<br />하객 수가 많은 경우</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_6.png" alt="긴 버진로드" /><span><strong>긴 버진로드</strong><em>극적인 연출 가능<br />동선 체크 필수</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_7.png" alt="통창 자연광 홀" /><span><strong>통창/자연광</strong><em>싱그럽고 이국적인 느낌<br />날씨/시간대 영향</em></span><i data-lucide="check"></i></button>
+            <button class="visual-choice" type="button"><img src="./assets/onboarding_8.png" alt="프라이빗 홀" /><span><strong>프라이빗</strong><em>차분한 집중감<br />단독 진행 선호</em></span><i data-lucide="check"></i></button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="b-region">
+          <div class="onboarding-copy">
+            <h1>어느 지역에서<br />웨딩홀을 찾아볼까요?</h1>
+            <p>이동 동선과 상담 가능 후보를 먼저 좁혀볼게요.</p>
+          </div>
+          <div class="chip-grid">
+            <button class="is-selected" type="button">서울 강남권</button>
+            <button type="button">서울 강북권</button>
+            <button type="button">경기 남부</button>
+            <button type="button">경기 북부</button>
+            <button type="button">인천/부천</button>
+            <button type="button">아직 미정</button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="b-date">
+          <div class="onboarding-copy">
+            <h1>예식 시기는<br />언제쯤인가요?</h1>
+            <p>가능한 일정과 프로모션을 함께 확인할 수 있어요.</p>
+          </div>
+          <div class="chip-grid">
+            <button class="is-selected" type="button">2026년 상반기</button>
+            <button type="button">2026년 하반기</button>
+            <button type="button">2027년 상반기</button>
+            <button type="button">2027년 하반기</button>
+            <button type="button">날짜 미정</button>
+            <button type="button">상담 후 결정</button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="guest">
+          <div class="onboarding-copy">
+            <h1>초대할 하객 수에 맞춰<br />가능한 홀을 좁혀볼게요</h1>
+            <p>정확하지 않아도 괜찮아요. 나중에 바꿀 수 있어요.</p>
+          </div>
+          <div class="onboarding-options">
+            <button class="onboarding-choice is-selected" type="button"><small>소규모 프라이빗</small><strong>100명 이하</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>기본 인원</small><strong>100 ~ 200명</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>보편적인 인원</small><strong>200 ~ 300명</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>대형홀 중심</small><strong>300명 이상</strong><i data-lucide="check"></i></button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="budget">
+          <div class="onboarding-copy">
+            <h1>식대 예산을 정하면<br />총 비용이 더 선명해져요</h1>
+            <p>가장 부담이 큰 가격 기준부터 비교 가능하게 만들게요.</p>
+          </div>
+          <div class="onboarding-options">
+            <button class="onboarding-choice is-selected" type="button"><small>가성비 우선</small><strong>8만원 이하</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>평균 예산</small><strong>8 ~ 10만원</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>선택지 넓게</small><strong>10 ~ 12만원</strong><i data-lucide="check"></i></button>
+            <button class="onboarding-choice" type="button"><small>퀄리티 우선</small><strong>12만원 이상</strong><i data-lucide="check"></i></button>
+          </div>
+        </div>
+
+        <div class="onboarding-step" data-step="complete">
+          <div class="onboarding-copy complete-copy">
+            <span>✓</span>
+            <h1>추천 기준이 준비됐어요<br />이제 후보를 비교해볼게요</h1>
+            <p>입력한 조건은 홈 추천과 스드메 콘텐츠에 함께 반영됩니다.</p>
+          </div>
+        </div>
+
+        <div class="onboarding-footer">
+          <p>나중에 변경할 수 있어요.</p>
+          <button class="onboarding-next" type="button">다음</button>
+        </div>
+      </section>
+
       <header class="app-header">
         <strong class="app-title">WEDDING</strong>
         <div class="header-actions">
