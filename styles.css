@@ -125,7 +125,7 @@ h1, h2, h3, p { margin: 0; }
 .travel-grid img { height: 164px; object-fit: cover; border-radius: 6px; }
 .footer { padding: 22px 16px 28px; color: #9aa2b1; font-size: 11px; background: #f7f8fa; }
 .footer small { display: block; margin-top: 8px; }
-.bottom-nav { position: fixed; z-index: 30; left: 50%; bottom: 0; width: min(100%, 360px); height: 56px; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(255,255,255,.96); border-top: 1px solid #d9dde5; backdrop-filter: blur(14px); transform: translateX(-50%); }
+.bottom-nav { position: fixed; z-index: 30; left: 50%; bottom: 0; width: min(100%, 360px); height: 56px; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); backdrop-filter: blur(14px); transform: translateX(-50%); }
 .bottom-nav button { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #9aa2b1; font-size: 10px; }
 .bottom-nav svg { width: 21px; height: 21px; stroke-width: 1.8; }
 .bottom-nav button.is-active { color: #111318; font-weight: 700; }
