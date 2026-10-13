@@ -44,6 +44,8 @@ const onboardingSteps = {
 let onboardingBranch = 'a';
 let onboardingIndex = 0;
 let splashTimer;
+let splashTransitionTimer;
+let onboardingEnterTimer;
 
 function currentOnboardingPath() {
   return onboardingSteps[onboardingBranch];
@@ -53,6 +55,10 @@ function showOnboardingStep(index) {
   const path = currentOnboardingPath();
   onboardingIndex = Math.max(0, Math.min(index, path.length - 1));
   const currentStep = path[onboardingIndex];
+  clearTimeout(splashTimer);
+  clearTimeout(splashTransitionTimer);
+  clearTimeout(onboardingEnterTimer);
+  shell?.classList.remove('is-splash-leaving');
 
   document.querySelectorAll('.onboarding-step').forEach((step) => {
     step.classList.toggle('is-active', step.dataset.step === currentStep);
@@ -75,15 +81,25 @@ function showOnboardingStep(index) {
   const helper = document.querySelector('.onboarding-footer p');
   if (helper) helper.textContent = currentStep === 'start' || currentStep === 'complete' ? '나중에 변경할 수 있어요.' : '선택한 기준은 나중에 변경할 수 있어요.';
 
-  clearTimeout(splashTimer);
   if (currentStep === 'splash') {
-    splashTimer = setTimeout(() => showOnboardingStep(1), 2600);
+    splashTimer = setTimeout(() => {
+      shell?.classList.add('is-splash-leaving');
+      splashTransitionTimer = setTimeout(() => {
+        showOnboardingStep(1);
+        shell?.classList.add('is-entering-onboarding');
+        onboardingEnterTimer = setTimeout(() => {
+          shell?.classList.remove('is-entering-onboarding');
+        }, 420);
+      }, 320);
+    }, 2300);
   }
 }
 
 function completeOnboarding() {
   shell?.classList.remove('is-onboarding');
   shell?.classList.remove('is-splash');
+  shell?.classList.remove('is-splash-leaving');
+  shell?.classList.remove('is-entering-onboarding');
   showPage('home');
   document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
   document.querySelector('.bottom-nav button[data-page-target="home"]')?.classList.add('is-active');
