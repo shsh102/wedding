@@ -38,11 +38,12 @@ document.querySelectorAll('.sdm-tabs button').forEach((tab) => {
 
 const shell = document.querySelector('.phone-shell');
 const onboardingSteps = {
-  a: ['start', 'a-vibe', 'a-space', 'guest', 'budget', 'complete'],
-  b: ['start', 'b-region', 'b-date', 'guest', 'budget', 'complete'],
+  a: ['splash', 'start', 'a-vibe', 'a-space', 'guest', 'budget', 'complete'],
+  b: ['splash', 'start', 'b-region', 'b-date', 'guest', 'budget', 'complete'],
 };
 let onboardingBranch = 'a';
 let onboardingIndex = 0;
+let splashTimer;
 
 function currentOnboardingPath() {
   return onboardingSteps[onboardingBranch];
@@ -56,9 +57,14 @@ function showOnboardingStep(index) {
   document.querySelectorAll('.onboarding-step').forEach((step) => {
     step.classList.toggle('is-active', step.dataset.step === currentStep);
   });
+  shell?.classList.toggle('is-splash', currentStep === 'splash');
 
   const progress = document.querySelector('.onboarding-progress span');
-  if (progress) progress.style.width = `${((onboardingIndex + 1) / path.length) * 100}%`;
+  if (progress) {
+    const questionTotal = path.length - 1;
+    const questionIndex = Math.max(1, onboardingIndex);
+    progress.style.width = `${(questionIndex / questionTotal) * 100}%`;
+  }
 
   const back = document.querySelector('.onboarding-back');
   back?.classList.toggle('is-visible', onboardingIndex > 0);
@@ -68,10 +74,16 @@ function showOnboardingStep(index) {
 
   const helper = document.querySelector('.onboarding-footer p');
   if (helper) helper.textContent = currentStep === 'start' || currentStep === 'complete' ? '나중에 변경할 수 있어요.' : '선택한 기준은 나중에 변경할 수 있어요.';
+
+  clearTimeout(splashTimer);
+  if (currentStep === 'splash') {
+    splashTimer = setTimeout(() => showOnboardingStep(1), 900);
+  }
 }
 
 function completeOnboarding() {
   shell?.classList.remove('is-onboarding');
+  shell?.classList.remove('is-splash');
   showPage('home');
   document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
   document.querySelector('.bottom-nav button[data-page-target="home"]')?.classList.add('is-active');
@@ -106,6 +118,7 @@ document.querySelectorAll('.onboarding-options button:not([data-branch]), .visua
 
 document.querySelector('.onboarding-next')?.addEventListener('click', () => {
   const path = currentOnboardingPath();
+  clearTimeout(splashTimer);
   if (onboardingIndex >= path.length - 1) {
     completeOnboarding();
   } else {
@@ -114,6 +127,7 @@ document.querySelector('.onboarding-next')?.addEventListener('click', () => {
 });
 
 document.querySelector('.onboarding-back')?.addEventListener('click', () => {
+  clearTimeout(splashTimer);
   showOnboardingStep(onboardingIndex - 1);
 });
 
