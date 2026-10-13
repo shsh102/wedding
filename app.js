@@ -77,7 +77,7 @@ function showOnboardingStep(index) {
 
   clearTimeout(splashTimer);
   if (currentStep === 'splash') {
-    splashTimer = setTimeout(() => showOnboardingStep(1), 900);
+    splashTimer = setTimeout(() => showOnboardingStep(1), 2600);
   }
 }
 
