@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Wedding personalized recommendation mobile prototype" />
+    <title>Wedding</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./vendor/lucide.min.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="phone-shell">
+      <div class="status-bar" aria-hidden="true">
+        <span>9:41</span>
+        <div class="status-icons"><i data-lucide="signal"></i><i data-lucide="wifi"></i><i data-lucide="battery-full"></i></div>
+      </div>
+
+      <header class="app-header">
+        <strong>WEDDING</strong>
+        <div class="header-actions">
+          <button class="icon-button" type="button" aria-label="알림"><i data-lucide="bell"></i></button>
+          <button class="icon-button" type="button" aria-label="검색"><i data-lucide="search"></i></button>
+        </div>
+      </header>
+
+      <section class="hero section" id="home">
+        <div class="eyebrow"><span>밝은 홀</span><span>높은 층고</span></div>
+        <h1>밝고 화사한 홀을<br />준비했어요!</h1>
+        <div class="venue-track scroll-track" aria-label="추천 웨딩홀">
+          <article class="venue-card">
+            <div class="media venue-photo photo-hall"><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button></div>
+            <h2>더채플앳대치</h2>
+            <p class="meta">서울 강남구 <b></b> 106,700원 <b></b> 200명</p>
+            <p class="price"><em>20%</em> 3,430<span>만원</span></p>
+          </article>
+          <article class="venue-card">
+            <div class="media venue-photo photo-hall alt"><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button></div>
+            <h2>더채플앳청담</h2>
+            <p class="meta">서울 강남구 <b></b> 108,000원 <b></b> 180명</p>
+            <p class="price"><em>18%</em> 3,520<span>만원</span></p>
+          </article>
+        </div>
+        <div class="quick-chips" aria-label="빠른 조건 선택">
+          <button class="chip is-active" type="button">밝은 홀</button>
+          <button class="chip" type="button">어두운 홀</button>
+          <button class="chip" type="button">높은 층고</button>
+          <button class="chip" type="button">단독 홀</button>
+          <button class="chip" type="button">강남권</button>
+        </div>
+      </section>
+
+      <section class="section pale" id="studio">
+        <div class="section-heading">
+          <h2>취향 저격 스드메 구성</h2>
+          <p>내가 원하는 스타일로 선택했어요.</p>
+        </div>
+        <div class="package-card">
+          <div class="package-title"><strong>화사하고 깔끔한 스드메</strong><button class="heart dark" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button></div>
+          <div class="package-grid">
+            <article><img src="./assets/raw_image_14.png" alt="웨딩 스튜디오 촬영" /><small>스튜디오</small><b>아르센 스튜디오</b><span>인물 중심</span></article>
+            <article><img src="./assets/raw_image_1.png" alt="실크 웨딩드레스" /><small>드레스</small><b>아베끄르땅</b><span>실크</span></article>
+            <article><img src="./assets/raw_image_3.png" alt="웨딩 메이크업" /><small>메이크업</small><b>정샘물</b><span>깔끔 보송</span></article>
+          </div>
+          <div class="package-cta">
+            <div><small>추가금 포함 예상가</small><strong><em>4%</em> 240<span>만원</span></strong></div>
+            <button class="primary-button" type="button" data-toast="상담 신청 화면으로 이동합니다">예약하기</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compare-section" id="compare">
+        <div class="section-heading">
+          <h2>비슷한 구성 한눈에 비교</h2>
+          <p>조건별 차이를 확인하고 선택해 보세요.</p>
+        </div>
+        <div class="comparison-tabs" role="tablist">
+          <button class="is-active" type="button" role="tab">추천 순</button>
+          <button type="button" role="tab">가격 낮은 순</button>
+          <button type="button" role="tab">거리 순</button>
+        </div>
+        <div class="compare-list">
+          <article class="compare-card">
+            <img src="./assets/raw_image_4.png" alt="밝은 웨딩홀" />
+            <div><small>밝은 홀 · 높은 층고</small><h3>더채플앳대치</h3><p>강남구 · 보증 200명</p><strong>3,430만원</strong></div>
+            <button class="heart dark" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button>
+          </article>
+          <article class="compare-card">
+            <img src="./assets/raw_image_6.png" alt="아치형 웨딩홀" />
+            <div><small>단독 홀 · 채플형</small><h3>아펠가모 선릉</h3><p>강남구 · 보증 180명</p><strong>3,120만원</strong></div>
+            <button class="heart dark" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section photo-section">
+        <div class="section-heading">
+          <h2>층고가 높은 밝은 홀</h2>
+          <p>찾으시는 곳과 비슷한 웨딩홀을 추천해드려요.</p>
+        </div>
+        <div class="photo-grid">
+          <img src="./assets/raw_image_4.png" alt="밝은 웨딩홀 내부" />
+          <img src="./assets/raw_image_6.png" alt="아치형 웨딩홀 내부" />
+          <img src="./assets/raw_image_4.png" alt="웨딩홀 버진로드" />
+          <img src="./assets/raw_image_6.png" alt="웨딩홀 무대" />
+          <img src="./assets/raw_image_4.png" alt="웨딩홀 플라워 장식" />
+          <img src="./assets/raw_image_6.png" alt="웨딩홀 조명" />
+        </div>
+      </section>
+
+      <section class="section reviews" id="reviews">
+        <div class="section-heading">
+          <h2>내가 관심 있는 실제 후기</h2>
+          <p>관심 있는 웨딩홀의 생생한 후기를 모았어요.</p>
+        </div>
+        <div class="review-card">
+          <div class="reviewer"><span class="avatar">J</span><div><b>예비신부 J</b><small>더채플앳대치 · 2026.08</small></div><span class="rating">★ 4.8</span></div>
+          <p>사진에서 본 것보다 층고가 높고 채광이 좋아서 홀에 들어서자마자 마음에 들었어요. 상담도 차분하게 진행됐습니다.</p>
+          <div class="review-photos"><img src="./assets/raw_image_4.png" alt="후기 사진" /><img src="./assets/raw_image_6.png" alt="후기 사진" /><img src="./assets/raw_image_4.png" alt="후기 사진" /></div>
+        </div>
+        <div class="review-card compact">
+          <div class="reviewer"><span class="avatar mint">H</span><div><b>신혼부부 H</b><small>아펠가모 선릉 · 2026.07</small></div><span class="rating">★ 4.6</span></div>
+          <p>동선이 단순하고 단독 홀이라 하객 안내가 편했어요.</p>
+        </div>
+      </section>
+
+      <section class="section schedule">
+        <div class="section-heading"><h2>현지님을 위한<br />투어 일정이에요</h2></div>
+        <div class="schedule-card">
+          <div class="calendar-head"><button type="button" aria-label="이전 날짜"><i data-lucide="chevron-left"></i></button><strong>10월 3일 · 토요일</strong><button type="button" aria-label="다음 날짜"><i data-lucide="chevron-right"></i></button></div>
+          <ol>
+            <li><time>11:00</time><div><b>더채플앳대치</b><span>서울 강남구 선릉로 612</span></div><i data-lucide="chevron-right"></i></li>
+            <li><time>15:00</time><div><b>아펠가모 선릉</b><span>차량 12분 · 상담 60분</span></div><i data-lucide="chevron-right"></i></li>
+            <li><time>17:30</time><div><b>라비돌웨딩강남</b><span>차량 18분 · 상담 60분</span></div><i data-lucide="chevron-right"></i></li>
+          </ol>
+        </div>
+      </section>
+
+      <aside class="benefit-banner">
+        <div><strong>내 웨딩홀 어디더 레벨로<br />만들어 주는 혜택북</strong><span>대관료 · 식대 · 아이웨딩 전용 혜택까지</span></div>
+        <img src="./assets/raw_image_10.png" alt="웨딩 혜택북" />
+      </aside>
+
+      <section class="section travel">
+        <div class="section-heading"><h2>지역 여행</h2><p>웨딩 준비 중 잠깐의 휴식도 준비했어요.</p></div>
+        <div class="travel-grid"><img src="./assets/raw_image_11.png" alt="바다 여행" /><img src="./assets/raw_image_20.png" alt="도시 여행" /></div>
+      </section>
+
+      <footer class="footer"><p>고객센터 · 입점문의 · 이용약관</p><small>© WEDDING. All rights reserved.</small></footer>
+      <nav class="bottom-nav" aria-label="하단 탐색">
+        <button class="is-active" type="button" data-target="home"><i data-lucide="house"></i><span>홈</span></button>
+        <button type="button" data-target="studio"><i data-lucide="sparkles"></i><span>스드메</span></button>
+        <button type="button" data-target="compare"><i data-lucide="columns-3"></i><span>비교</span></button>
+        <button type="button" data-target="reviews"><i data-lucide="bookmark"></i><span>저장</span></button>
+        <button type="button" data-toast="마이페이지를 준비 중입니다"><i data-lucide="user-round"></i><span>MY</span></button>
+      </nav>
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+  </body>
+</html>
