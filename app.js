@@ -77,6 +77,16 @@ function completeOnboarding() {
   document.querySelector('.bottom-nav button[data-page-target="home"]')?.classList.add('is-active');
 }
 
+function openOnboarding() {
+  onboardingBranch = 'a';
+  onboardingIndex = 0;
+  document.querySelectorAll('.onboarding-choice[data-branch]').forEach((item) => item.classList.remove('is-selected'));
+  document.querySelector('.onboarding-choice[data-branch="a"]')?.classList.add('is-selected');
+  shell?.classList.add('is-onboarding');
+  showOnboardingStep(0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 document.querySelectorAll('.onboarding-choice[data-branch]').forEach((choice) => {
   choice.addEventListener('click', () => {
     onboardingBranch = choice.dataset.branch || 'a';
@@ -111,7 +121,8 @@ function showPage(pageName) {
   document.querySelectorAll('.page-view').forEach((page) => {
     page.classList.toggle('is-active', page.dataset.page === pageName);
   });
-  document.querySelector('.app-title').textContent = pageName === 'sdm' ? '스드메' : 'WEDDING';
+  const titles = { home: 'WEDDING', sdm: '스드메', guide: '가이드' };
+  document.querySelector('.app-title').textContent = titles[pageName] || 'WEDDING';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -137,6 +148,15 @@ document.querySelectorAll('.bottom-nav button').forEach((button) => {
       button.classList.add('is-active');
     }
   });
+});
+
+document.querySelector('[data-open-onboarding]')?.addEventListener('click', () => {
+  openOnboarding();
+});
+
+document.querySelector('[data-open-guide]')?.addEventListener('click', () => {
+  showPage('guide');
+  document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
 });
 
 document.querySelectorAll('.quick-pill[data-target]').forEach((button) => {
