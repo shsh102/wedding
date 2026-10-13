@@ -67,7 +67,7 @@ function showOnboardingStep(index) {
   }
 
   const back = document.querySelector('.onboarding-back');
-  back?.classList.toggle('is-visible', onboardingIndex > 0);
+  back?.classList.toggle('is-visible', onboardingIndex > 1);
 
   const next = document.querySelector('.onboarding-next');
   if (next) next.textContent = currentStep === 'complete' ? '추천 후보 보기' : '다음';
@@ -102,10 +102,9 @@ function openOnboarding() {
 document.querySelectorAll('.onboarding-choice[data-branch]').forEach((choice) => {
   choice.addEventListener('click', () => {
     onboardingBranch = choice.dataset.branch || 'a';
-    onboardingIndex = 0;
     document.querySelectorAll('.onboarding-choice[data-branch]').forEach((item) => item.classList.remove('is-selected'));
     choice.classList.add('is-selected');
-    showOnboardingStep(0);
+    showOnboardingStep(onboardingIndex);
   });
 });
 
