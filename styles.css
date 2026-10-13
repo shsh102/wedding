@@ -26,6 +26,8 @@ h1, h2, h3, p { margin: 0; }
 .header-actions { display: flex; gap: 14px; }
 .icon-button { width: 26px; height: 26px; display: grid; place-items: center; }
 .icon-button svg { width: 22px; height: 22px; stroke-width: 1.8; }
+.page-view { display: none; }
+.page-view.is-active { display: block; }
 .section { padding: 24px 16px; }
 .hero { padding-top: 20px; padding-bottom: 12px; background: linear-gradient(180deg, var(--mint-soft) 0, rgba(248,245,238,0) 300px); }
 .eyebrow { display: flex; gap: 4px; margin-bottom: 8px; }
@@ -125,6 +127,39 @@ h1, h2, h3, p { margin: 0; }
 .travel-grid img { height: 164px; object-fit: cover; border-radius: 6px; }
 .footer { padding: 22px 16px 28px; color: #9aa2b1; font-size: 11px; background: #f7f8fa; }
 .footer small { display: block; margin-top: 8px; }
+.sdm-page { min-height: calc(100vh - 104px); background: #f3f3f3; }
+.sdm-tabs { height: 44px; display: flex; gap: 20px; align-items: center; padding: 0 16px; background: #fff; border-bottom: 1px solid #f3f3f3; }
+.sdm-tabs button { position: relative; height: 44px; color: #b3b3b3; font-size: 15px; font-weight: 600; letter-spacing: -.025em; }
+.sdm-tabs button.is-active { color: #171717; }
+.sdm-tabs button.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--mint-strong); }
+.sdm-filter { padding: 12px 16px; background: #fff; border-bottom: 1px solid #f3f3f3; }
+.wedding-date { width: 100%; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 8px; background: var(--surface); color: #171717; }
+.date-left { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px; letter-spacing: -.025em; }
+.date-left svg { width: 16px; height: 16px; color: #252932; stroke-width: 1.8; }
+.date-left b { width: 1px; height: 16px; background: #d9dde5; }
+.date-left strong { font-weight: 700; }
+.wedding-date em { color: #999; font-size: 11px; font-style: normal; font-weight: 600; letter-spacing: -.025em; }
+.sdm-list { display: grid; gap: 8px; padding-bottom: 24px; background: #f9f9f9; }
+.sdm-card { overflow: hidden; background: #fff; }
+.sdm-card-head { display: grid; gap: 2px; padding: 34px 16px 12px; }
+.sdm-card-head small { overflow: hidden; color: #808080; font-size: 13px; line-height: 1.45; letter-spacing: -.025em; white-space: nowrap; text-overflow: ellipsis; }
+.sdm-card-head h2 { overflow: hidden; color: #242424; font-size: 16px; line-height: 1.4; letter-spacing: -.025em; white-space: nowrap; text-overflow: ellipsis; }
+.sdm-products { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0 16px 12px; overflow: hidden; }
+.sdm-product { position: relative; min-width: 0; }
+.sdm-product img { aspect-ratio: 109 / 150; height: auto; object-fit: cover; }
+.sdm-product:first-child img { border-radius: 4px 0 0 4px; }
+.sdm-product:last-child img { border-radius: 0 4px 4px 0; }
+.sdm-product .heart { right: 6px; top: 6px; width: 20px; height: 20px; color: #fff; }
+.sdm-product .heart svg { width: 20px; height: 20px; stroke-width: 1.8; }
+.sdm-product small, .sdm-product b, .sdm-product span { display: block; overflow: hidden; padding-right: 4px; white-space: nowrap; text-overflow: ellipsis; }
+.sdm-product small { margin-top: 8px; color: #999; font-size: 11px; line-height: 1.45; letter-spacing: -.025em; }
+.sdm-product b { color: #242424; font-size: 14px; line-height: 1.45; letter-spacing: -.025em; }
+.sdm-product span { margin-top: 2px; color: #505763; font-size: 13px; line-height: 1.45; letter-spacing: -.025em; }
+.sdm-card-foot { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid #f3f3f3; }
+.sdm-card-foot small { display: block; color: #999; font-size: 12px; line-height: 1.45; letter-spacing: -.025em; }
+.sdm-card-foot strong { display: flex; align-items: baseline; gap: 2px; color: #171717; font-size: 20px; line-height: 1.4; }
+.sdm-card-foot em { color: var(--mint); font-style: normal; }
+.sdm-card-foot span { font-size: 18px; letter-spacing: -.025em; }
 .bottom-nav { position: fixed; z-index: 30; left: 50%; bottom: 0; width: min(100%, 360px); height: 56px; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); backdrop-filter: blur(14px); transform: translateX(-50%); }
 .bottom-nav button { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; color: #9aa2b1; font-size: 10px; }
 .bottom-nav svg { width: 21px; height: 21px; stroke-width: 1.8; }

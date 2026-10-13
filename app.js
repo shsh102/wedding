@@ -29,7 +29,23 @@ document.querySelectorAll('.comparison-tabs button').forEach((tab) => {
   });
 });
 
+document.querySelectorAll('.sdm-tabs button').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sdm-tabs button').forEach((item) => item.classList.remove('is-active'));
+    tab.classList.add('is-active');
+  });
+});
+
+function showPage(pageName) {
+  document.querySelectorAll('.page-view').forEach((page) => {
+    page.classList.toggle('is-active', page.dataset.page === pageName);
+  });
+  document.querySelector('.app-title').textContent = pageName === 'sdm' ? '스드메' : 'WEDDING';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function moveToSection(target) {
+  showPage('home');
   document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   const activeNav = document.querySelector(`.bottom-nav button[data-target="${target}"]`);
   if (activeNav) {
@@ -40,9 +56,14 @@ function moveToSection(target) {
 
 document.querySelectorAll('.bottom-nav button').forEach((button) => {
   button.addEventListener('click', () => {
+    const pageTarget = button.dataset.pageTarget;
     const target = button.dataset.target;
     if (target) {
       moveToSection(target);
+    } else if (pageTarget) {
+      showPage(pageTarget);
+      document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
+      button.classList.add('is-active');
     }
   });
 });

@@ -14,13 +14,14 @@
   <body>
     <main class="phone-shell">
       <header class="app-header">
-        <strong>WEDDING</strong>
+        <strong class="app-title">WEDDING</strong>
         <div class="header-actions">
           <button class="icon-button" type="button" aria-label="알림"><i data-lucide="bell"></i></button>
           <button class="icon-button" type="button" aria-label="검색"><i data-lucide="search"></i></button>
         </div>
       </header>
 
+      <div class="page-view is-active" data-page="home">
       <section class="hero section" id="home">
         <div class="eyebrow"><span>밝은 홀</span><span>높은 층고</span></div>
         <h1>밝고 화사한 홀을<br />준비했어요!</h1>
@@ -151,11 +152,70 @@
       </section>
 
       <footer class="footer"><p>고객센터 · 입점문의 · 이용약관</p><small>© WEDDING. All rights reserved.</small></footer>
+      </div>
+
+      <div class="page-view sdm-page" data-page="sdm" aria-label="스드메 페이지">
+        <div class="sdm-tabs" role="tablist" aria-label="스드메 카테고리">
+          <button class="is-active" type="button" role="tab">패키지</button>
+          <button type="button" role="tab">스튜디오</button>
+          <button type="button" role="tab">드레스</button>
+          <button type="button" role="tab">메이크업</button>
+        </div>
+
+        <div class="sdm-filter">
+          <button class="wedding-date" type="button" data-toast="본식 날짜를 수정할 수 있어요">
+            <span class="date-left"><i data-lucide="calendar-days"></i><b></b><span>본식 <strong>2026년 10월</strong></span></span>
+            <em>수정</em>
+          </button>
+        </div>
+
+        <section class="sdm-list" aria-label="스드메 패키지 추천">
+          <article class="sdm-card">
+            <div class="sdm-card-head">
+              <small>[촬영+본식] 화사한 인물 중심</small>
+              <h2>프라베소 x 아베끄르땅 x 정샘물</h2>
+            </div>
+            <div class="sdm-products">
+              <div class="sdm-product"><img src="./assets/sdm_package_1.png" alt="프라베소 스튜디오" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>스튜디오</small><b>프라베소</b><span>맑은 자연광</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_2.png" alt="아베끄르땅 드레스" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>드레스</small><b>아베끄르땅</b><span>실크</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_3.png" alt="정샘물 메이크업" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>메이크업</small><b>정샘물</b><span>깔끔 보송</span></div>
+            </div>
+            <div class="sdm-card-foot"><div><small>추가금 포함 예상가</small><strong><em>4%</em> 240<span>만원</span></strong></div><button class="primary-button" type="button" data-toast="예약 상담 화면으로 이동합니다">예약하기</button></div>
+          </article>
+
+          <article class="sdm-card">
+            <div class="sdm-card-head">
+              <small>[촬영+본식] 화사한 인물 중심</small>
+              <h2>아우라스튜디오 x 조슈아벨브라이덜 x 르블랑담</h2>
+            </div>
+            <div class="sdm-products">
+              <div class="sdm-product"><img src="./assets/sdm_package_4.png" alt="아우라스튜디오" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>스튜디오</small><b>아우라</b><span>인물 중심</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_5.png" alt="조슈아벨브라이덜 드레스" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>드레스</small><b>조슈아벨</b><span>클래식</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_6.png" alt="르블랑담 메이크업" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>메이크업</small><b>르블랑담</b><span>피부표현</span></div>
+            </div>
+            <div class="sdm-card-foot"><div><small>추가금 포함 예상가</small><strong><em>4%</em> 240<span>만원</span></strong></div><button class="primary-button" type="button" data-toast="예약 상담 화면으로 이동합니다">예약하기</button></div>
+          </article>
+
+          <article class="sdm-card">
+            <div class="sdm-card-head">
+              <small>[촬영+본식] 화사한 인물 중심</small>
+              <h2>로이스튜디오 x 메이제인 x 꾸띠엘</h2>
+            </div>
+            <div class="sdm-products">
+              <div class="sdm-product"><img src="./assets/sdm_package_7.png" alt="로이스튜디오" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>스튜디오</small><b>로이스튜디오</b><span>화사한 톤</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_8.png" alt="메이제인 드레스" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>드레스</small><b>메이제인</b><span>러블리</span></div>
+              <div class="sdm-product"><img src="./assets/sdm_package_9.png" alt="꾸띠엘 메이크업" /><button class="heart" type="button" aria-label="찜하기"><i data-lucide="heart"></i></button><small>메이크업</small><b>꾸띠엘</b><span>맑은 피부</span></div>
+            </div>
+            <div class="sdm-card-foot"><div><small>추가금 포함 예상가</small><strong><em>4%</em> 240<span>만원</span></strong></div><button class="primary-button" type="button" data-toast="예약 상담 화면으로 이동합니다">예약하기</button></div>
+          </article>
+        </section>
+      </div>
+
       <nav class="bottom-nav" aria-label="하단 탐색">
-        <button class="is-active" type="button" data-target="home"><i data-lucide="house"></i><span>홈</span></button>
-        <button type="button" data-target="studio"><i data-lucide="sparkles"></i><span>스드메</span></button>
-        <button type="button" data-target="compare"><i data-lucide="columns-3"></i><span>비교</span></button>
-        <button type="button" data-target="reviews"><i data-lucide="bookmark"></i><span>저장</span></button>
+        <button class="is-active" type="button" data-page-target="home"><i data-lucide="house"></i><span>홈</span></button>
+        <button type="button" data-page-target="sdm"><i data-lucide="sparkles"></i><span>스드메</span></button>
+        <button type="button" data-page-target="home" data-target="compare"><i data-lucide="columns-3"></i><span>비교</span></button>
+        <button type="button" data-page-target="home" data-target="reviews"><i data-lucide="bookmark"></i><span>저장</span></button>
         <button type="button" data-toast="마이페이지를 준비 중입니다"><i data-lucide="user-round"></i><span>MY</span></button>
       </nav>
       <div class="toast" role="status" aria-live="polite"></div>
