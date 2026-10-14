@@ -126,7 +126,19 @@ document.querySelectorAll('.onboarding-choice[data-branch]').forEach((choice) =>
 
 document.querySelectorAll('.onboarding-options button:not([data-branch]), .visual-options button, .chip-grid button').forEach((choice) => {
   choice.addEventListener('click', () => {
-    choice.parentElement?.querySelectorAll('button').forEach((item) => item.classList.remove('is-selected'));
+    const group = choice.parentElement;
+    const maxSelect = Number(group?.dataset.maxSelect || 1);
+    if (maxSelect > 1) {
+      const selectedItems = Array.from(group?.querySelectorAll('button.is-selected') || []);
+      if (choice.classList.contains('is-selected')) {
+        choice.classList.remove('is-selected');
+      } else {
+        if (selectedItems.length >= maxSelect) selectedItems[0]?.classList.remove('is-selected');
+        choice.classList.add('is-selected');
+      }
+      return;
+    }
+    group?.querySelectorAll('button').forEach((item) => item.classList.remove('is-selected'));
     choice.classList.add('is-selected');
   });
 });
