@@ -96,6 +96,7 @@ function showOnboardingStep(index) {
 }
 
 function completeOnboarding() {
+  applyPersonalizedHome();
   shell?.classList.remove('is-onboarding');
   shell?.classList.remove('is-splash');
   shell?.classList.remove('is-splash-leaving');
@@ -103,6 +104,34 @@ function completeOnboarding() {
   showPage('home');
   document.querySelectorAll('.bottom-nav button').forEach((item) => item.classList.remove('is-active'));
   document.querySelector('.bottom-nav button[data-page-target="home"]')?.classList.add('is-active');
+}
+
+function selectedCopy(stepName, fallback) {
+  const selected = document.querySelector(`.onboarding-step[data-step="${stepName}"] .is-selected`);
+  if (!selected) return fallback;
+  return selected.querySelector('strong')?.textContent?.trim() || selected.querySelector('small')?.textContent?.trim() || fallback;
+}
+
+function setAll(selector, value) {
+  document.querySelectorAll(selector).forEach((node) => { node.textContent = value; });
+}
+
+function applyPersonalizedHome() {
+  const vibe = selectedCopy('a-vibe', '밝은 홀');
+  const space = selectedCopy('a-space', '높은 층고');
+  const guests = selectedCopy('guest', '200명');
+  const budget = selectedCopy('budget', '8 ~ 10만원');
+  const titleMap = {
+    '밝은 홀': '밝고 화사한 홀',
+    '어두운 홀': '몰입감 있는 어두운 홀',
+    '호텔': '프라이빗한 호텔 웨딩',
+    '야외/가든': '자연을 담은 가든 웨딩',
+  };
+  setAll('[data-vibe-tag]', vibe);
+  setAll('[data-space-tag]', space);
+  setAll('[data-hall-title]', titleMap[vibe] || `${vibe} 분위기`);
+  setAll('[data-guest]', guests);
+  setAll('[data-budget]', `식대 ${budget}`);
 }
 
 function openOnboarding() {
@@ -203,6 +232,18 @@ document.querySelector('[data-open-guide]')?.addEventListener('click', () => {
 document.querySelectorAll('.quick-pill[data-target]').forEach((button) => {
   button.addEventListener('click', () => {
     moveToSection(button.dataset.target);
+  });
+});
+
+document.querySelectorAll('[data-target]').forEach((button) => {
+  if (button.closest('.bottom-nav') || button.classList.contains('quick-pill')) return;
+  button.addEventListener('click', () => moveToSection(button.dataset.target));
+});
+
+document.querySelectorAll('.filter-chips button, .route-tabs button').forEach((button) => {
+  button.addEventListener('click', () => {
+    button.parentElement?.querySelectorAll('button').forEach((item) => item.classList.remove('is-active'));
+    button.classList.add('is-active');
   });
 });
 
